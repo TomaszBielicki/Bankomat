@@ -32,7 +32,9 @@ public class BankAccount {
     }
 
     // TODO Platnosc pomiedzy dwoma uzytkwnikami (kluczowy bedzie parametr Bankccount)
-    public void transfer (double amounts){
+    public void transfer (double amounts, BankAccount acc){
+
+
 
     }
 
