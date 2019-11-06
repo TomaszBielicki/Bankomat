@@ -1,7 +1,7 @@
 public class BankAccount {
 
-    String userName;
-    double accBalance;
+    private String userName;
+    private double accBalance;
 
 
     public BankAccount(String userName, double accBalance) {
@@ -29,9 +29,9 @@ public class BankAccount {
             System.out.println("za malo srodkow");
         else
             this.accBalance -= amounts;
-
     }
 
+    // TODO
     public void transfer (double amounts){
 
 
