@@ -31,9 +31,8 @@ public class BankAccount {
             this.accBalance -= amounts;
     }
 
-    // TODO
+    // TODO Platnosc pomiedzy dwoma uzytkwnikami (kluczowy bedzie parametr Bankccount)
     public void transfer (double amounts){
-
 
     }
 
