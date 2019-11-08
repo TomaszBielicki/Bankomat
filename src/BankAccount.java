@@ -35,6 +35,10 @@ public class BankAccount {
     // TODO Platnosc pomiedzy dwoma uzytkwnikami (kluczowy bedzie parametr Bankccount)
     public void transfer (double amounts, BankAccount acc){
 
+        // Todo 1 - czy uzytkownika ma wystarczjąco środków, jeśli nie - wyrzuć info na konsole (sout)
+        // Todo 2 - jeśli są środki niech zabierze je z jednego konta i przeleje na drugie
+        // Todo 3 - po przelawiu pieniędzy wyświetl informacje o transferze od kogo ile pieniedzy zostalo przelane i na jakie konto
+
         if(accBalance < amounts) {
             accBalance -= amounts;
         }
