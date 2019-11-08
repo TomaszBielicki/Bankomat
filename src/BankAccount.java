@@ -1,7 +1,8 @@
 public class BankAccount {
 
-    private String userName;
-    private double accBalance;
+     String userName;
+     double accBalance;
+
 
 
     public BankAccount(String userName, double accBalance) {
@@ -34,8 +35,11 @@ public class BankAccount {
     // TODO Platnosc pomiedzy dwoma uzytkwnikami (kluczowy bedzie parametr Bankccount)
     public void transfer (double amounts, BankAccount acc){
 
+        if(accBalance < amounts) {
+            accBalance -= amounts;
+        }
 
-
+        acc.accBalance += amounts;
     }
 
    public String getUserName (){return userName;}

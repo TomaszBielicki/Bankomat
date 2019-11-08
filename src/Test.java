@@ -9,11 +9,12 @@ public class Test {
        // System.out.println(user.getAccBalance());
 
         BankAccount tomek = new BankAccount("Tomek", 4000);
-        BankAccount aga = new BankAccount("aga", 000);
+        BankAccount aga = new BankAccount("aga");
 
-        tomek.deposit(500);
+        tomek.transfer(200,aga);
+        //aga.deposit(200);
         //tomek.withdraw(4001);
-        aga.deposit(1000);
+        //aga.deposit(1000);
         System.out.println(tomek.toString());
         System.out.println(aga.toString());
 
