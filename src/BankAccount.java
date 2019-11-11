@@ -26,20 +26,25 @@ public class BankAccount {
     }
 
     public void withdraw (double amounts) {
-        if (accBalance < amounts)
-            System.out.println("za malo srodkow");
-        else
+        if (!(accBalance < amounts))
             this.accBalance -= amounts;
+        else
+            System.out.println("za malo srodkow");
     }
 
     // TODO Platnosc pomiedzy dwoma uzytkwnikami (kluczowy bedzie parametr Bankccount)
     public void transfer (double amounts, BankAccount acc){
 
-        if(accBalance < amounts) {
+        if(!(accBalance > 0)) {
             accBalance -= amounts;
+            acc.accBalance += amounts;
+        }
+        else {
+            System.out.println("Za malo srodkow na przelew");
         }
 
-        acc.accBalance += amounts;
+
+
     }
 
    public String getUserName (){return userName;}

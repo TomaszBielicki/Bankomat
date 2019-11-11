@@ -11,21 +11,12 @@ public class Test {
         BankAccount tomek = new BankAccount("Tomek", 4000);
         BankAccount aga = new BankAccount("aga");
 
-        tomek.transfer(200,aga);
+        tomek.transfer(5000,aga);
         //aga.deposit(200);
-        //tomek.withdraw(4001);
+        //tomek.withdraw(400);
         //aga.deposit(1000);
         System.out.println(tomek.toString());
         System.out.println(aga.toString());
-
-
-
-
-        //AccountService.payIn(user);
-
-
-
-
 
         }
 
