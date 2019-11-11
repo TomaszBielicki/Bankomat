@@ -1,27 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankAccount {
+public class Bank {
 
     String userName;
     double accBalance;
+    List<User> users ;
+    String bankName;
     // TODO 1 dodajemy liste użytkowników, tutaj się troche skomplikuje bo będą to obiekty User a nie BankAccount
 
     // TODO 6 To juz nie będzie robić za użytkownika, tylko za bank - niech zostanie tylko nazwa np. bankName
-    public BankAccount(String userName, double accBalance) {
+    public Bank(String bankName) {
+            this.users = new ArrayList<>();
+            this.bankName = bankName;
 
-        this.userName = userName;
-        this.accBalance = accBalance;
         // TODO 1.2 pamietaj aby ja zainicjalicować
     }
 
-    public BankAccount(String userName) {
-
-        this.userName = userName;
-        this.accBalance = 0;
-    }
-
     // TODO 2 Tutaj będzie metoda aby dodawać użytkowników do listy
+
+    public void addUser(User newUser){
+        this.users.add(newUser);
+
+    }
 
     public double deposit(double amounts) {
         if (0 < amounts) {
@@ -37,8 +38,7 @@ public class BankAccount {
             System.out.println("za malo srodkow");
     }
 
-
-    public void transfer(double amounts, BankAccount acc) {
+    public void transfer(double amounts, Bank acc) {
 
         if (!(accBalance < amounts)) {
             accBalance -= amounts;
@@ -47,23 +47,6 @@ public class BankAccount {
         } else {
             System.out.println("Za malo srodkow na przelew");
         }
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-
-    public double getAccBalance() {
-        return accBalance;
-    }
-
-    public void setAccBalance(double accBalance) {
-        this.accBalance = accBalance;
     }
 
     @Override
