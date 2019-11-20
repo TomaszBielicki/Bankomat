@@ -5,21 +5,16 @@ public class Bank {
 
     String userName;
     double accBalance;
-    List<User> users ;
+    List<User> users;
     String bankName;
-    // TODO 1 dodajemy liste użytkowników, tutaj się troche skomplikuje bo będą to obiekty User a nie BankAccount
 
-    // TODO 6 To juz nie będzie robić za użytkownika, tylko za bank - niech zostanie tylko nazwa np. bankName
     public Bank(String bankName) {
-            this.users = new ArrayList<>();
-            this.bankName = bankName;
+        this.users = new ArrayList<>();
+        this.bankName = bankName;
 
-        // TODO 1.2 pamietaj aby ja zainicjalicować
     }
 
-    // TODO 2 Tutaj będzie metoda aby dodawać użytkowników do listy
-
-    public void addUser(User newUser){
+    public void addUser(User newUser) {
         this.users.add(newUser);
 
     }
@@ -38,20 +33,40 @@ public class Bank {
             System.out.println("za malo srodkow");
     }
 
-    public void transfer(double amounts, Bank acc) {
 
-        if (!(accBalance < amounts)) {
-            accBalance -= amounts;
-            acc.accBalance += amounts;
-            System.out.println("Pieniadze w ilosci " + amounts + " zostaly przelane na konto uzytkownika " + acc);
+    public void transfer(String userAcc, double amount, User destAcc) {
+
+        User checkedUser = findUserByName(userAcc);
+        double checkedUserAcc = checkedUser.getAccBalance();
+        double destAcc1 = destAcc.getAccBalance();
+
+        if (checkedUserAcc > 0) {
+            checkedUser.setAccBalance(checkedUserAcc -= amount);
+            destAcc.setAccBalance(destAcc1 += amount);
+            System.out.println("przelew zrobiony");
         } else {
-            System.out.println("Za malo srodkow na przelew");
+            System.out.println("Blad");
+        }
+
+
+    }
+
+    public User findUserByName(String name) {
+
+        for (User user : users) {
+            if (user.getName().equals(name))
+                return user;
+        }
+        System.out.println("Uzytkownik " + name + " nie istnieje.");
+        return null;
+
+    }
+
+    public void showUsers() {
+        for (User user : users) {
+            System.out.println(user);
         }
     }
 
-    @Override
-    public String toString() {
-        return "name : " + this.userName + "\n" +
-                "saldo : " + this.accBalance + "\n\n";
-    }
+
 }

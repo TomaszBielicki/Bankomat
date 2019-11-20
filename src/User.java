@@ -8,10 +8,10 @@ public class User {
         this.accBalance = accBalance;
     }
 
-    public User(String name){
+    public User(String name) {
         this.name = name;
     }
-    // TODO 4 pewnie woła o konstruktor z jednym parametrem, to juz znasz ;)
+
 
     public String getName() {
         return name;
@@ -29,5 +29,9 @@ public class User {
         this.accBalance = accBalance;
     }
 
-
+    @Override
+    public String toString() {
+        return "name : " + this.name + "\n" +
+                "saldo : " + this.accBalance + "\n\n";
+    }
 }
