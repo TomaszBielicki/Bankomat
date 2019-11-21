@@ -12,6 +12,8 @@ public class User {
         this.name = name;
     }
 
+    // TODO 5.1 tutaj mizesz je przeniesc i skosyztsać z tego accBalance
+
 
     public String getName() {
         return name;

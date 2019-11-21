@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Bank {
 
+    // TODO 4 Daj te zmienne jako private tez i usuń accBalance
     String userName;
     double accBalance;
     List<User> users;
@@ -19,6 +20,7 @@ public class Bank {
 
     }
 
+    // TODO 5 Wykorzystamy te metody (deposit, withdraw), ale w klasie User
     public double deposit(double amounts) {
         if (0 < amounts) {
             this.accBalance += amounts;
@@ -34,12 +36,14 @@ public class Bank {
     }
 
 
+    // TODO 2 Zrob aby destUser tez był Stringiem
     public void transfer(String userAcc, double amount, User destAcc) {
 
         User checkedUser = findUserByName(userAcc);
         double checkedUserAcc = checkedUser.getAccBalance();
         double destAcc1 = destAcc.getAccBalance();
 
+        // TODO 5.3 zamien logike na wczesniejsze metody
         if (checkedUserAcc > 0) {
             checkedUser.setAccBalance(checkedUserAcc -= amount);
             destAcc.setAccBalance(destAcc1 += amount);
@@ -51,6 +55,7 @@ public class Bank {
 
     }
 
+    // TODO 3 ta metoda bedzie private, tylko Ta klasa (Bank) bedzie z niej kozystać
     public User findUserByName(String name) {
 
         for (User user : users) {
