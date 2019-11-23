@@ -33,14 +33,15 @@ public class Bank {
 //            return;
 //        }
 
-        if (userAcc != null) {
+        if (checkedUser != null && checkedDestUser != null) {
+
             double checkedUserAcc = checkedUser.getAccBalance();
             double checkedDestAcc = checkedDestUser.getAccBalance();
+
             checkedUser.setAccBalance(checkedUserAcc -= amount);
             checkedDestUser.setAccBalance(checkedDestAcc += amount);
-            System.out.println("przelew zrobiony");
         } else {
-            System.out.println("brak uzytkownika o takiej nazwie");
+            System.out.println("brak uzytkownika o takiej nazwie ");
         }
     }
 

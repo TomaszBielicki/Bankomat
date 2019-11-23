@@ -11,8 +11,7 @@ public class Test {
         bank.addUser(aga);
         bank.addUser(tomek);
 
-        // TODO 1 tutaj zabezpieczymy ten przypadek - najlepiej debug i poszukac gdzie wywala
-        bank.transfer("tom", 400, "aga");
+        bank.transfer("tomek", 400, "aga");
 
         bank.showUsers();
 
