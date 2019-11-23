@@ -7,15 +7,16 @@ public class Test {
         User tomek = new User("tomek", 3000);
         Bank bank = new Bank("bank");
 
+
         bank.addUser(aga);
         bank.addUser(tomek);
+
         // TODO 1 tutaj zabezpieczymy ten przypadek - najlepiej debug i poszukac gdzie wywala
-        bank.transfer("tom", 400, aga);
+        bank.transfer("tom", 400, "aga");
 
         bank.showUsers();
-        bank.findUserByName("tomek");
 
-        System.out.println(aga);
+        //System.out.println(aga);
 
 
     }

@@ -3,11 +3,10 @@ import java.util.List;
 
 public class Bank {
 
-    // TODO 4 Daj te zmienne jako private tez i usuń accBalance
-    String userName;
-    double accBalance;
-    List<User> users;
-    String bankName;
+
+    private String userName;
+    private List<User> users;
+    private String bankName;
 
     public Bank(String bankName) {
         this.users = new ArrayList<>();
@@ -20,43 +19,32 @@ public class Bank {
 
     }
 
-    // TODO 5 Wykorzystamy te metody (deposit, withdraw), ale w klasie User
-    public double deposit(double amounts) {
-        if (0 < amounts) {
-            this.accBalance += amounts;
-        }
-        return amounts;
-    }
 
-    public void withdraw(double amounts) {
-        if (!(accBalance < amounts))
-            this.accBalance -= amounts;
-        else
-            System.out.println("za malo srodkow");
-    }
-
-
-    // TODO 2 Zrob aby destUser tez był Stringiem
-    public void transfer(String userAcc, double amount, User destAcc) {
+    public void transfer(String userAcc, double amount, String destAcc) {
 
         User checkedUser = findUserByName(userAcc);
-        double checkedUserAcc = checkedUser.getAccBalance();
-        double destAcc1 = destAcc.getAccBalance();
+        User checkedDestUser = findUserByName(destAcc);
 
-        // TODO 5.3 zamien logike na wczesniejsze metody
-        if (checkedUserAcc > 0) {
+//        try {
+//            //User checkedUser = findUserByName(userAcc);
+//            //User checkedDestUser = findUserByName(destAcc);
+//        }catch  (NullPointerException e){
+//            System.out.println("Wrong user name");
+//            return;
+//        }
+
+        if (userAcc != null) {
+            double checkedUserAcc = checkedUser.getAccBalance();
+            double checkedDestAcc = checkedDestUser.getAccBalance();
             checkedUser.setAccBalance(checkedUserAcc -= amount);
-            destAcc.setAccBalance(destAcc1 += amount);
+            checkedDestUser.setAccBalance(checkedDestAcc += amount);
             System.out.println("przelew zrobiony");
         } else {
-            System.out.println("Blad");
+            System.out.println("brak uzytkownika o takiej nazwie");
         }
-
-
     }
 
-    // TODO 3 ta metoda bedzie private, tylko Ta klasa (Bank) bedzie z niej kozystać
-    public User findUserByName(String name) {
+    private User findUserByName(String name) {
 
         for (User user : users) {
             if (user.getName().equals(name))

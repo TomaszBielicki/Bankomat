@@ -12,7 +12,20 @@ public class User {
         this.name = name;
     }
 
-    // TODO 5.1 tutaj mizesz je przeniesc i skosyztsać z tego accBalance
+
+    public double deposit(double amounts) {
+        if (0 < amounts) {
+            this.accBalance += amounts;
+        }
+        return amounts;
+    }
+
+    public void withdraw(double amounts) {
+        if (!(accBalance < amounts))
+            this.accBalance -= amounts;
+        else
+            System.out.println("za malo srodkow");
+    }
 
 
     public String getName() {
