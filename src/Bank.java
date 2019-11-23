@@ -11,15 +11,17 @@ public class Bank {
     public Bank(String bankName) {
         this.users = new ArrayList<>();
         this.bankName = bankName;
-
     }
 
     public void addUser(User newUser) {
         this.users.add(newUser);
-
     }
 
-
+    // TODO 1 Pierwszy refactor - usunąc try/catch (if juz zalatwil sprawe)
+    // TODO 1.2 userAcc zamienic na userName, tak samo z drugim
+    // TODO 1.3 checkedUsers tez mozna zmienic nazwy
+    // TODO 2 pozbyc sie .setAccBalance i uzyc wczesniej napisanych metod
+    // TODO 3 Co sie stanie jesli przelejemy wiecej niz user ma na koncie ??*
     public void transfer(String userAcc, double amount, String destAcc) {
 
         User checkedUser = findUserByName(userAcc);
@@ -53,7 +55,6 @@ public class Bank {
         }
         System.out.println("Uzytkownik " + name + " nie istnieje.");
         return null;
-
     }
 
     public void showUsers() {
@@ -61,6 +62,4 @@ public class Bank {
             System.out.println(user);
         }
     }
-
-
 }
