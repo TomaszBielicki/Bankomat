@@ -17,31 +17,24 @@ public class Bank {
         this.users.add(newUser);
     }
 
-    // TODO 1 Pierwszy refactor - usunąc try/catch (if juz zalatwil sprawe)
-    // TODO 1.2 userAcc zamienic na userName, tak samo z drugim
-    // TODO 1.3 checkedUsers tez mozna zmienic nazwy
-    // TODO 2 pozbyc sie .setAccBalance i uzyc wczesniej napisanych metod
-    // TODO 3 Co sie stanie jesli przelejemy wiecej niz user ma na koncie ??*
-    public void transfer(String userAcc, double amount, String destAcc) {
 
-        User checkedUser = findUserByName(userAcc);
-        User checkedDestUser = findUserByName(destAcc);
+    public void transfer(String userName, double amount, String destUserName) {
 
-//        try {
-//            //User checkedUser = findUserByName(userAcc);
-//            //User checkedDestUser = findUserByName(destAcc);
-//        }catch  (NullPointerException e){
-//            System.out.println("Wrong user name");
-//            return;
-//        }
+        User user = findUserByName(userName);
+        User destUser = findUserByName(destUserName);
 
-        if (checkedUser != null && checkedDestUser != null) {
+        if (user != null && destUser != null) {
 
-            double checkedUserAcc = checkedUser.getAccBalance();
-            double checkedDestAcc = checkedDestUser.getAccBalance();
+            double userBalance = user.getAccBalance();
+            double destUserBalance = destUser.getAccBalance();
 
-            checkedUser.setAccBalance(checkedUserAcc -= amount);
-            checkedDestUser.setAccBalance(checkedDestAcc += amount);
+            if (userBalance > amount) {
+                user.withdraw(amount);
+                destUser.deposit(amount);
+            } else {
+                System.out.println("brak wystarczajacych srodkow na koncie");
+            }
+
         } else {
             System.out.println("brak uzytkownika o takiej nazwie ");
         }
