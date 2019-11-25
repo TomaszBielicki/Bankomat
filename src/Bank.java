@@ -17,6 +17,15 @@ public class Bank {
         this.users.add(newUser);
     }
 
+    // narazie roboczo bedzie tax
+    public void tax() {
+        for (User user : users) {
+            double tax = 0.05;
+            double balanceTax = user.getAccBalance() * tax;
+            user.deposit(balanceTax);
+        }
+
+    }
 
     public void transfer(String userName, double amount, String destUserName) {
 
